@@ -24,7 +24,7 @@ export class ItemsController {
 
   @Get(':id')
   @ApiOperation({ title: '查询单条数据' })
-  @ApiImplicitParam({name: 'id', required: false})
+  @ApiImplicitParam({ name: 'id', required: false })
   findOne(@Param('id') id): Promise<Item> {
     return this.itemsService.findOne(id);
   }
@@ -37,14 +37,13 @@ export class ItemsController {
 
   @Delete(':id')
   @ApiOperation({ title: '删除单条数据' })
-  delete(@Param('id') id :string){
+  delete(@Param('id') id: string) {
     return this.itemsService.delete(id);
   }
 
   @Put(':id')
   @ApiOperation({ title: '更新单条数据' })
   update(@Body() updateItemDto: CreateItemDto, @Param('id') id): Promise<Item> {
-    console.log(updateItemDto,id);
     return this.itemsService.update(id, updateItemDto);
   }
 }
