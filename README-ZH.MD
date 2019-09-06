@@ -1,13 +1,13 @@
 <p align="center">
-  <a href="https://docs.nestjs.cn/" target="blank"><img src="https://nestjs.com/img/logo_text.svg" width="320" alt="Nest Logo" /></a>
+  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo_text.svg" width="320" alt="Nest Logo" /></a>
 </p>
 
 [travis-image]: https://api.travis-ci.org/nestjs/nest.svg?branch=master
 [travis-url]: https://travis-ci.org/nestjs/nest
 [linux-image]: https://img.shields.io/travis/nestjs/nest/master.svg?label=linux
 [linux-url]: https://travis-ci.org/nestjs/nest
-
-  <p align="center">是一个用于构建高效且可伸缩的服务器端应用程序的渐进<a href="http://nodejs.org" target="blank">Node.js</a> 框架。
+  
+  <p align="center">A progressive <a href="http://nodejs.org" target="blank">Node.js</a> framework for building efficient and scalable server-side applications, heavily inspired by <a href="https://angular.io" target="blank">Angular</a>.</p>
     <p align="center">
 <a href="https://www.npmjs.com/~nestjscore"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
 <a href="https://www.npmjs.com/~nestjscore"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
@@ -21,20 +21,20 @@
   <a href="https://paypal.me/kamilmysliwiec"><img src="https://img.shields.io/badge/Donate-PayPal-dc3d53.svg"/></a>
   <a href="https://twitter.com/nestframework"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow"></a>
 </p>
+ 
+  [中文文档](./README-CH.md)
 
-  [English document](./README-ZH.md)
+## Description
 
-## 描述
+[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
 
-基于[Nest](https://docs.nestjs.cn/)、[Mongoose](https://mongoosejs.com/)搭建curd的应用程序。
-
-## 安装
+## Installation
 
 ```bash
 $ npm install
 ```
 
-## 运行
+## Running the app
 
 ```bash
 # development
@@ -45,10 +45,9 @@ $ npm run start:dev
 
 # production mode
 $ npm run start:prod
-``` 
+```
 
-
-## 测试
+## Test
 
 ```bash
 # unit tests
@@ -60,9 +59,7 @@ $ npm run test:e2e
 # test coverage
 $ npm run test:cov
 ```
-
-
-## 部分代码
+## some code
 > main.js 
 
 ```typescript
@@ -238,9 +235,12 @@ export class ItemsService {
 }
 
 ```
-[地址：nest-mongoose-curd](https://github.com/demonarmor/nest-mongoose-curd.git)
+## Support
+
+Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+
 ## Stay in touch
- 
+
 - Author - [armor.ac.cn](https://armor.ac.cn/)
-- Website - [nest 官网](https://nestjs.com/)
-- Website - [nest 中文官网](https://docs.nestjs.cn)
+- Website - [https://nestjs.com](https://nestjs.com/)
+- Website - [https://docs.nestjs.cn](https://nestjs.com/)
