@@ -22,7 +22,7 @@
   <a href="https://twitter.com/nestframework"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow"></a>
 </p>
  
-  [中文文档](./README-CH.md)
+  [中文文档](./README.MD)
 
 ## Description
 
