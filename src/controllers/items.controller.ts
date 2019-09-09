@@ -8,9 +8,8 @@ import {
   Param,
   UseGuards,
 } from '@nestjs/common';
-import { CreateItemDto } from './dto/create.item.dto';
-import { ItemsService } from './items.service';
-import { Item } from './interfaces/item.interface';
+import { CreateItemDto } from '../dto/create.item.dto';
+import { ItemsService } from '../services/items.service';
 import { ApiOperation, ApiImplicitParam, ApiBearerAuth, ApiUseTags } from '@nestjs/swagger';
 import { AuthGuard } from '@nestjs/passport';
 
@@ -22,20 +21,20 @@ export class ItemsController {
   @UseGuards(AuthGuard('jwt'))
   @Get()
   @ApiOperation({ title: '查询所有数据' })
-  findAll(): Promise<Item[]> {
+  findAll() {
     return this.itemsService.findAll();
   }
 
   @Get(':id')
   @ApiOperation({ title: '查询单条数据' })
   @ApiImplicitParam({ name: 'id', required: false })
-  findOne(@Param('id') id): Promise<Item> {
+  findOne(@Param('id') id) {
     return this.itemsService.findOne(id);
   }
 
   @Post()
   @ApiOperation({ title: '创建单条数据' })
-  create(@Body() createItemDto: CreateItemDto): Promise<Item> {
+  create(@Body() createItemDto: CreateItemDto) {
     return this.itemsService.create(createItemDto);
   }
 
@@ -47,7 +46,7 @@ export class ItemsController {
 
   @Put(':id')
   @ApiOperation({ title: '更新单条数据' })
-  update(@Body() updateItemDto: CreateItemDto, @Param('id') id): Promise<Item> {
+  update(@Body() updateItemDto: CreateItemDto, @Param('id') id) {
     return this.itemsService.update(id, updateItemDto);
   }
 }

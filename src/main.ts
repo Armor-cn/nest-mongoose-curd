@@ -1,7 +1,8 @@
 import { NestFactory } from '@nestjs/core';
-import { AppModule } from './app.module';
+import { AppModule } from './module/app.module';
 import { SwaggerModule, DocumentBuilder } from '@nestjs/swagger';
 import * as util from 'util';
+import { Config } from './common/config.common';
 declare const module: any;
 
 
@@ -19,8 +20,8 @@ console.debug = (...objs: any[]): void => {
     }
 };
 
+const port = Number(Config.getOrThrow('server.port'));
 async function bootstrap() {
-  const port =Number(4000);
   const app = await NestFactory.create(AppModule);
   const options = new DocumentBuilder()
     .setTitle('blog 博客接口文档')

@@ -1,0 +1,1 @@
+export {mongodb} from './common.database';

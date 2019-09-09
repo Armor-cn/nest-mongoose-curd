@@ -1,0 +1,11 @@
+{
+    "server": {
+        "port": 400
+    },
+    "database": {
+        "mongodb": {
+            "type": "mongodb",
+            "url": "mongodb://localhost/nest"
+        }
+    }
+}
