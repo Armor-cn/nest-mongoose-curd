@@ -2,14 +2,15 @@ import { Controller, Post, Body, Get, UseGuards } from '@nestjs/common';
 import { UserService } from '../services/user.service';
 import { AuthService } from '../services/auth.service';
 import { LoginUserDto } from '../dto/login.user.dto';
-import { AuthGuard } from '@nestjs/passport';
 import { Payload } from '../interface/user.payload';
 import { CreateUserDto } from '../dto/create.user.dto';
 import { ApiOperation, ApiUseTags } from '@nestjs/swagger';
 @ApiUseTags('登录-注册模块')
 @Controller('auth')
 export class AuthController {
-    constructor(private userService: UserService, private authService: AuthService) { }
+    constructor(
+        private userService: UserService,
+        private authService: AuthService) { }
 
     @Get()
     tempAuth() {

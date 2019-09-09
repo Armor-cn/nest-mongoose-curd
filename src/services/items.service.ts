@@ -1,12 +1,12 @@
 import { Injectable } from '@nestjs/common';
-import { ItemIAttribute } from '../interface/item.interface';
+import { Item } from '../interface/item.interface';
 import { Model } from 'mongoose';
 import { InjectModel } from '@nestjs/mongoose';
 import { CreateItemDto } from '../dto/create.item.dto';
 
 @Injectable()
 export class ItemsService {
-  constructor(@InjectModel('Item') private readonly itemModel: Model<ItemIAttribute.Item>) { }
+  constructor(@InjectModel('Item') private readonly itemModel: Model<Item>) { }
 
   async findAll(){
     return await this.itemModel.find();
@@ -24,7 +24,7 @@ export class ItemsService {
     return await this.itemModel.findByIdAndDelete(id);
   }
 
-  async update(id: string, item: ItemIAttribute.Item) {
+  async update(id: string, item:Item) {
     return await this.itemModel.findByIdAndUpdate(id, item, { new: true });
   }
 }

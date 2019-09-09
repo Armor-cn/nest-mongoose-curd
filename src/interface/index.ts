@@ -1,2 +1,2 @@
-export { ItemIAttribute } from './item.interface';
-export { UserIAttribute } from './user.interface';
+export { Item } from './item.interface';
+export { User } from './user.interface';
