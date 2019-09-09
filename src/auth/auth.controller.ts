@@ -25,7 +25,7 @@ export class AuthController {
         };
         const token = await this.authService.login(payload);
         console.log(token)
-        return { user, token };
+        return { user, token:`Bearer ${token}` };
     }
 
     @ApiOperation({ title: '注册' })
