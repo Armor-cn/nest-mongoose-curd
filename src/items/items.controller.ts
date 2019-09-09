@@ -6,16 +6,20 @@ import {
   Delete,
   Body,
   Param,
+  UseGuards,
 } from '@nestjs/common';
-import { CreateItemDto } from './dto/create-item.dto';
+import { CreateItemDto } from './dto/create.item.dto';
 import { ItemsService } from './items.service';
 import { Item } from './interfaces/item.interface';
-import { ApiOperation, ApiImplicitParam } from '@nestjs/swagger';
+import { ApiOperation, ApiImplicitParam, ApiBearerAuth, ApiUseTags } from '@nestjs/swagger';
+import { AuthGuard } from '@nestjs/passport';
 
+@ApiBearerAuth()
+@ApiUseTags('案例描述')
 @Controller('items')
 export class ItemsController {
   constructor(private readonly itemsService: ItemsService) { }
-
+  @UseGuards(AuthGuard('jwt'))
   @Get()
   @ApiOperation({ title: '查询所有数据' })
   findAll(): Promise<Item[]> {
