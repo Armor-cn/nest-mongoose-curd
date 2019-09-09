@@ -24,7 +24,6 @@ export class AuthController {
             password: user.password,
         };
         const token = await this.authService.login(payload);
-        console.log(token)
         return { user, token };
     }
 

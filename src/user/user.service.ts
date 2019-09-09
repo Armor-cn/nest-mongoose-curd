@@ -12,7 +12,6 @@ export class UserService {
 
     sanitizeUser(user: User) {
         user.password = ''
-        // delete user.password;
         return user;
     }
 
