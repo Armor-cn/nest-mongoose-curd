@@ -6,6 +6,7 @@ import { LoggerMiddleware } from './logger/logger.middleware';
 import * as BodyParser from 'body-parser';
 import { AnyExceptionFilter } from './filter/exception.filter';
 import { ValidationPipe } from '@nestjs/common';
+import * as CookieParser from 'cookie-parser';
 declare const module: any;
 
 
@@ -25,6 +26,8 @@ console.debug = (...objs: any[]): void => {
 async function bootstrap() {
   const port = Number(4000);
   const app = await NestFactory.create(AppModule);
+  app.useGlobalFilters(new AnyExceptionFilter())
+  app.enableCors();
   const options = new DocumentBuilder()
     .setTitle('blog 博客接口文档')
     .setDescription('The cats API description')
@@ -37,7 +40,6 @@ async function bootstrap() {
   SwaggerModule.setup('api', app, document);
   app.use(BodyParser.urlencoded({ limit: '2mb', extended: false }));
   app.use(BodyParser.json({ limit: '2mb' }));
-  app.useGlobalFilters(new AnyExceptionFilter())
   app.useGlobalPipes(new ValidationPipe());
   app.use(LoggerMiddleware);
 

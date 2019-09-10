@@ -21,7 +21,7 @@ import { AuthGuard } from '@nestjs/passport';
 export class ItemsController {
   constructor(private readonly itemsService: ItemsService) { }
 
-  @UseGuards(AuthGuard())
+  @UseGuards(AuthGuard('jwt'))
   @Get()
   @ApiOperation({ title: '查询所有数据' })
   findAll(): Promise<Item[]> {

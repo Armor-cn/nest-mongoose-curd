@@ -1,6 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { UserService } from '../user/user.service';
-import { sign } from 'jsonwebtoken';
+import * as jwt from 'jsonwebtoken';
+import { Payload } from '../user/types/payload';
 
 @Injectable()
 export class AuthService {
@@ -16,12 +17,12 @@ export class AuthService {
         return null;
     }
 
-    async login(user: any) {
+    async gteToken(user: Payload) {
         const payload = {
             email: user.email,
             password: user.password
         }
-        const access_token = sign(payload, 'secretKey', { expiresIn: '12h' });
+        const access_token = jwt.sign(payload, 'secretKey', { expiresIn: '12h' });
         return {
             token: `Bearer ${access_token}`,
         };

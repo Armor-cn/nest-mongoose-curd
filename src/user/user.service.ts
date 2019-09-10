@@ -14,30 +14,25 @@ export class UserService {
         user.password = ''
         return user;
     }
-
     async create(userDto: CreateUserDto) {
         const { email } = userDto;
         const user = await this.userModel.findOne({ email });
         if (user) {
             throw new HttpException('用户名已经存在', HttpStatus.BAD_REQUEST);
         }
-
         const createdUser = new this.userModel(userDto);
         await createdUser.save();
         return this.sanitizeUser(createdUser);
     }
 
-    async findByLogin(userDTO: LoginUserDto, ip: string) {
+    async findByLogin(userDTO: LoginUserDto, ip?: string) {
         const { email, password } = userDTO;
-        
         const user = await this.userModel.findOne({ email });
         if (!user) {
             throw new HttpException('Invalid credentials', HttpStatus.UNAUTHORIZED);
         }
-
         if (await bcrypt.compare(password, user.password)) {
             return this.sanitizeUser(user);
-
         } else {
             throw new HttpException('Invalid credentials', HttpStatus.UNAUTHORIZED);
         }

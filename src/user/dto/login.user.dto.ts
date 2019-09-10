@@ -1,5 +1,5 @@
 import { ApiModelProperty } from '@nestjs/swagger';
-import { IsEmail, MinLength, IsNotEmpty, MaxLength } from 'class-validator';
+import { IsEmail, MinLength, MaxLength, IsString } from 'class-validator';
 
 export class LoginUserDto {
 
@@ -8,8 +8,8 @@ export class LoginUserDto {
     readonly email: string;
 
     @ApiModelProperty({ description: '密码', type: String, required: true })
-    @IsNotEmpty() 
-    @MinLength(8,{ message: '密码不能小于8'})
-    @MaxLength(16,{ message: '密码不能大于16位'})
+    @IsString() 
+    @MinLength(8)
+    @MaxLength(16)
     readonly password: string;
 }
