@@ -27,8 +27,9 @@ export class UserService {
         return this.sanitizeUser(createdUser);
     }
 
-    async findByLogin(userDTO: LoginUserDto) {
+    async findByLogin(userDTO: LoginUserDto, ip: string) {
         const { email, password } = userDTO;
+        
         const user = await this.userModel.findOne({ email });
         if (!user) {
             throw new HttpException('Invalid credentials', HttpStatus.UNAUTHORIZED);

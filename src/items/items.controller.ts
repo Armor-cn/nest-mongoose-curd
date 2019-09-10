@@ -15,11 +15,13 @@ import { ApiOperation, ApiImplicitParam, ApiBearerAuth, ApiUseTags } from '@nest
 import { AuthGuard } from '@nestjs/passport';
 
 @ApiBearerAuth()
-@ApiUseTags('案例描述')
-@Controller('items')
+@ApiUseTags('Blog-案例描述')
+@Controller('/items')
+
 export class ItemsController {
   constructor(private readonly itemsService: ItemsService) { }
-  @UseGuards(AuthGuard('jwt'))
+
+  @UseGuards(AuthGuard())
   @Get()
   @ApiOperation({ title: '查询所有数据' })
   findAll(): Promise<Item[]> {

@@ -21,8 +21,9 @@ export class AuthService {
             email: user.email,
             password: user.password
         }
+        const access_token = sign(payload, 'secretKey', { expiresIn: '12h' });
         return {
-            access_token: sign(payload, 'secretKey', { expiresIn: '12h' }),
+            token: `Bearer ${access_token}`,
         };
     }
 

@@ -11,6 +11,24 @@ export const UserSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
+},{
+    timestamps: true,
+    toObject: {
+      transform(doc, ret, game) {
+        delete ret.__v;
+        delete ret._id;
+      },
+      virtuals: true,
+    },
+    toJSON: {
+      transform(doc, ret, game) {
+        delete ret.__v;
+        delete ret._id;
+      },
+      virtuals: true,
+    },
+    id: true,
+    versionKey: false,
 });
 
 UserSchema.pre('save', async function(next: mongoose.HookNextFunction) {
